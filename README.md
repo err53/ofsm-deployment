@@ -2,7 +2,7 @@
 
 Some simple scripts to deploy [OFSM](https://github.com/OpenFactorioServerManager/factorio-server-manager) on [Fly](https://fly.io/).
 
-Mostly based on OFSM's excellent [docker image](https://github.com/OpenFactorioServerManager/factorio-server-manager/tree/develop/docker)
+Mostly based on OFSM's excellent [docker image](https://github.com/OpenFactorioServerManager/factorio-server-manager/tree/develop/docker).
 
 ## Prerequisites
 
