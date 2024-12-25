@@ -1,0 +1,49 @@
+# fly.toml app configuration file generated for ofsm-err53 on 2024-12-24T21:24:14-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'ofsm-err53'
+primary_region = 'ewr'
+
+[build]
+
+[env]
+FACTORIO_VERSION = 'stable'
+FSM_FACTORIO_IP = 'fly-global-services'
+
+[[mounts]]
+source = 'opt'
+destination = '/opt'
+
+[http_service]
+internal_port = 80
+force_https = true
+auto_stop_machines = 'suspend'
+auto_start_machines = true
+min_machines_running = 0
+
+[[http_service.checks]]
+interval = '30s'
+timeout = '5s'
+grace_period = '20s'
+method = 'GET'
+path = '/'
+
+[[services]]
+protocol = 'udp'
+internal_port = 34197
+auto_stop_machines = 'suspend'
+auto_start_machines = true
+min_machines_running = 0
+
+[[services.ports]]
+port = 34197
+
+[[restart]]
+policy = 'never'
+
+[[vm]]
+memory = '2gb'
+cpu_kind = 'shared'
+cpus = 1
