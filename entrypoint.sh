@@ -35,8 +35,7 @@ install_game() {
         --output /tmp/factorio_${FACTORIO_VERSION}.tar.xz
 
     echo "Installing Factorio binaries to /opt/factorio..."
-    mkdir -p /opt/factorio
-    tar -xf /tmp/factorio_${FACTORIO_VERSION}.tar.xz -C /opt/factorio
+    tar -xf /tmp/factorio_${FACTORIO_VERSION}.tar.xz -C /opt
     rm /tmp/factorio_${FACTORIO_VERSION}.tar.xz
 }
 
@@ -59,6 +58,9 @@ check_installed_version() {
         return 1 # Signal that installation is needed
     fi
 }
+
+# Create the required directories
+mkdir -p /opt/fsm-data /opt/factorio /opt/factorio/saves /opt/factorio/mods /opt/factorio/config
 
 # Fetch and resolve the required version
 fetch_version
