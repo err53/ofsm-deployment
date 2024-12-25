@@ -14,6 +14,7 @@ Mostly based on OFSM's excellent [docker image](https://github.com/OpenFactorioS
 2. Customize the `fly.toml` file to your liking
    (items of interest include `app`, `region`, `FACTORIO_VERSION`, and `[[vm]]` parameters)
 3. Run `flyctl launch` in the repository directory
+4. Make sure to create a reserved IPv4 address when prompted (this is a requirement for UDP services)
 
 ## Features
 
