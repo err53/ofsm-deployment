@@ -5,8 +5,6 @@ ENV FACTORIO_VERSION=stable \
     MANAGER_VERSION=0.10.1 \
     RCON_PASS=""
 
-VOLUME /opt
-
 EXPOSE 80/tcp 34197/udp
 
 RUN apt-get update && apt-get install -y curl tar xz-utils unzip jq && rm -rf /var/lib/apt/lists/*
