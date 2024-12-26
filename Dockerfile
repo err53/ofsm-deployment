@@ -5,6 +5,8 @@ ENV FACTORIO_VERSION=stable \
     MANAGER_VERSION=0.10.1 \
     RCON_PASS=""
 
+VOLUME /opt
+
 EXPOSE 80/tcp 34197/udp
 
 RUN apt-get update && apt-get install -y curl tar xz-utils unzip jq && rm -rf /var/lib/apt/lists/*
@@ -18,8 +20,9 @@ RUN curl --location "https://github.com/OpenFactorioServerManager/factorio-serve
     rm /tmp/factorio-server-manager-linux_${MANAGER_VERSION}.zip && \
     mv factorio-server-manager fsm
 
-COPY ./entrypoint.sh /root/entrypoint.sh
+# janky patch to default to the right IP for Fly
+RUN sed -i 's/defaultValue:"0.0.0.0"/defaultValue:"fly-global-services"/g' fsm/app/bundle.js
 
-RUN chmod +x /root/entrypoint.sh
+COPY ./entrypoint.sh /root/entrypoint.sh
 
 ENTRYPOINT ["/root/entrypoint.sh"]
