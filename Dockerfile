@@ -18,9 +18,6 @@ RUN curl --location "https://github.com/OpenFactorioServerManager/factorio-serve
     rm /tmp/factorio-server-manager-linux_${MANAGER_VERSION}.zip && \
     mv factorio-server-manager fsm
 
-# janky patch to default to the right IP for Fly
-RUN sed -i 's/defaultValue:"0.0.0.0"/defaultValue:"fly-global-services"/g' fsm/app/bundle.js
-
 COPY ./entrypoint.sh /root/entrypoint.sh
 
 RUN chmod +x /root/entrypoint.sh
