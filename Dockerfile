@@ -23,4 +23,6 @@ RUN sed -i 's/defaultValue:"0.0.0.0"/defaultValue:"fly-global-services"/g' fsm/a
 
 COPY ./entrypoint.sh /root/entrypoint.sh
 
+RUN chmod +x /root/entrypoint.sh
+
 ENTRYPOINT ["/root/entrypoint.sh"]
