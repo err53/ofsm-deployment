@@ -19,6 +19,6 @@ Mostly based on OFSM's excellent [docker image](https://github.com/OpenFactorioS
 ## Features
 
 - [x] Tweaks to `Dockerfile` and `entrypoint.sh` to allow for proper statefulness on Fly
-- [x] Automatic starting and stopping of OFSM
+- [ ] Automatic starting and stopping of OFSM
 - [x] Caching of Factorio server executables
 - [ ] Backups

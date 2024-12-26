@@ -18,16 +18,10 @@ destination = '/opt'
 [http_service]
 internal_port = 80
 force_https = true
-auto_stop_machines = 'suspend'
-auto_start_machines = true
-min_machines_running = 0
 
 [[services]]
 protocol = 'udp'
 internal_port = 34197
-auto_stop_machines = 'suspend'
-auto_start_machines = true
-min_machines_running = 0
 
 [[services.ports]]
 port = 34197
